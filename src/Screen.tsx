@@ -7,7 +7,7 @@ interface Props {
 
 export const Screen: FC<Props> = () => {
     const [data, setData] = useState();
-    const url = `https://api.nasa.gov/planetary/apod?api_key=${}`;
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_KEY}`;
     useEffect(() => {
         const getMyData = async () => {
              fetch(url, {
@@ -20,7 +20,7 @@ export const Screen: FC<Props> = () => {
     }, []);
     return (
         <div>
-            <h1>get Data</h1>
+            <h1>NASA image</h1>
             <div>
 
                 {data && 
